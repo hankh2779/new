@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}미션 4{% endblock %}
+{% block content %}
+<div class="container">
+    <h3>[미션 4] 스마트 대출</h3>
+    <p>스마트 대출 완료 코드(예: SMARTOK)를 입력하세요.</p>
+    <form method="post">
+        {% if not admin %}
+            <input type="text" name="code" required autofocus>
+            <button type="submit">확인</button>
+        {% endif %}
+        {% if admin %}
+            <button type="submit" name="skip" value="1">관리자: 다음으로</button>
+        {% endif %}
+    </form>
+    <div class="error">{{ error }}</div>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}관리자 모드 로그인{% endblock %}
+{% block content %}
+<div class="container">
+    <h3>관리자 모드 진입</h3>
+    <form method="post">
+        <input type="hidden" name="next" value="{{ next }}">
+        <label for="admin_password">관리자 암호</label>
+        <input type="password" id="admin_password" name="admin_password" required autofocus>
+        <button type="submit">확인</button>
+    </form>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="error">{{ messages[0] }}</div>
+      {% endif %}
+    {% endwith %}
+</div>
+{% endblock %}

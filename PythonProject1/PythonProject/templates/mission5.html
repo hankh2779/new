@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}미션 5{% endblock %}
+{% block content %}
+<div class="container">
+    <h3>[미션 5] 도서관 규칙 퀴즈</h3>
+    <p>도서관 반납 방법 퀴즈입니다.<br>정답 번호를 모두 입력하세요. (예: 2 3)</p>
+    <ol>
+        <li>모바일 도서 반납 후 제자리에 가져다 두기</li>
+        <li>데스크에 반납하기</li>
+        <li>모바일 반납 후 자료실에 있는 북카트 위에 두기</li>
+    </ol>
+    <form method="post">
+        {% if not admin %}
+            <input type="text" name="code" required autofocus>
+            <button type="submit">확인</button>
+        {% endif %}
+        {% if admin %}
+            <button type="submit" name="skip" value="1">관리자: 다음으로</button>
+        {% endif %}
+    </form>
+    <div class="error">{{ error }}</div>
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}미션 1{% endblock %}
+{% block content %}
+<div class="container">
+    <h3>[미션 1] 스마트 365 시스템 도서 대출</h3>
+    <p>1층 라운지의 스마트 365 기기에서 책을 대출했다고 가정합니다.<br>
+    도서 대출 완료 화면의 <b>코드</b>를 입력하세요. (예: 365OK)</p>
+    <form method="post">
+        {% if not admin %}
+            <input type="text" name="code" required autofocus>
+            <button type="submit">확인</button>
+        {% endif %}
+        {% if admin %}
+            <button type="submit" name="skip" value="1">관리자: 다음으로</button>
+        {% endif %}
+    </form>
+    <div class="error">{{ error }}</div>
+</div>
+{% endblock %}

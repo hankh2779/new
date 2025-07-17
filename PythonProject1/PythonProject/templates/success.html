@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %}제출 완료{% endblock %}
+{% block content %}
+<div class="container" style="max-width:400px; margin:100px auto; padding:24px; border-radius:12px; box-shadow:0 2px 8px #ccc; text-align:center;">
+    <h2>제출이 완료되었습니다!</h2>
+    <a href="{{ url_for('mission', num=1) }}">미션 시작하기</a>
+</div>
+{% endblock %}

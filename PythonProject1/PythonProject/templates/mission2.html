@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}미션 2{% endblock %}
+{% block content %}
+<div class="container">
+    <h3>[미션 2] 해외 논문 검색</h3>
+    <p>논문명 + PAPEROK 코드를 입력하세요.</p>
+    <form method="post">
+        {% if not admin %}
+            <input type="text" name="code" required autofocus>
+            <button type="submit">확인</button>
+        {% endif %}
+        {% if admin %}
+            <button type="submit" name="skip" value="1">관리자: 다음으로</button>
+        {% endif %}
+    </form>
+    <div class="error">{{ error }}</div>
+</div>
+{% endblock %}

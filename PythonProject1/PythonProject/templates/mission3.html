@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}미션 3{% endblock %}
+{% block content %}
+<div class="container">
+    <h3>[미션 3] 멀티미디어 감상실 이용</h3>
+    <p>자리 대여 후 받은 코드를 입력하세요. (예: MEDIA2F)</p>
+    <form method="post">
+        {% if not admin %}
+            <input type="text" name="code" required autofocus>
+            <button type="submit">확인</button>
+        {% endif %}
+        {% if admin %}
+            <button type="submit" name="skip" value="1">관리자: 다음으로</button>
+        {% endif %}
+    </form>
+    <div class="error">{{ error }}</div>
+</div>
+{% endblock %}
